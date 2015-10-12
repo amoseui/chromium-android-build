@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GCLIENT_RUNHOOKS="docker run -i -w /chromium -v `pwd`/chromium:/chromium -v `pwd`/depot_tools:/depot_tools -e PATH=$PATH:/depot_tools:/chromium/src/third_party/android_tools/sdk/build-tools/23.0.0/ amoseui/chromium-android-build-osx /bin/bash -c"
+
+$GCLIENT_RUNHOOKS "gclient runhooks"
+
 DOCKER_CMD="docker run -i -w /chromium/src -v `pwd`/chromium:/chromium -v `pwd`/depot_tools:/depot_tools -e PATH=$PATH:/depot_tools:/chromium/src/third_party/android_tools/sdk/build-tools/23.0.0/ amoseui/chromium-android-build-osx /bin/bash -c"
 
 $DOCKER_CMD "build/gyp_chromium -DOS=android"
