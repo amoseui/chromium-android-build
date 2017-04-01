@@ -1,8 +1,18 @@
-# chromium-android-build-osx
-build chromium on OS X by docker image of ubuntu
+# chromium-android-build
 
-Sync chromium source and depot_tools in this directory.
+### Run Chromium commands on docker
+- Build Chromium for Android on docker ubuntu 14.04
+- [Checking out and building Chromium for Android](https://chromium.googlesource.com/chromium/src/+/master/docs/android_build_instructions.md)
+```bash
+$ ./run_on_docker.sh $CHROMIUM_DIR
+```
 
-build_by_docker.sh pulls docker image from https://hub.docker.com/r/amoseui/chromium-android-build-osx/.
 
-This image has been already executed src/build/install-build-deps-android.sh on ubuntu:14.04.
+
+### Build docker image
+- Built by rocker
+- [Docker Hub](https://hub.docker.com/r/amoseui/chromium-android-build)
+- https://github.com/grammarly/rocker
+```bash
+$ rocker build --var CHROMIUM_DIR="/Users/amoseui/chromium" .
+```
